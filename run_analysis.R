@@ -14,6 +14,9 @@ run_analysis <- function () {
     #Combine test and train into one dataset.
     mydata<-rbind(mytestdata,mytraindata)
     
+    #Extract only the means and standard deviations
+    mymsdata<-select(mydata,grep("std|mean",mynames$V2))
     
+
     
 }

@@ -1,3 +1,11 @@
+---
+title: "README"
+author: "JCP"
+date: "6/20/2020"
+output: html_document
+---
+
+
 # wearable_tidy
 
 ## _parseljc_

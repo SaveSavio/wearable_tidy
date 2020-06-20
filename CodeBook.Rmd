@@ -35,8 +35,16 @@ myacts
 
 The first data set provided is a result of the following cleanup actions:
 
-1. Combine the activity 
-
+1. Read in descriptive feature (variable) names from features.text and activity labels from activity_labels.txt
+2. Read in the test data.
+    a. Read in the test data set using the feature names as descriptive column names.
+    b. Read in the test activity labels, convert them to activity names, and join them to the test data.
+    c. Read in the test subject labels and join them to the test data.
+3. Read in the train data.
+    a. Read in the train data set using the feature names as descriptive column names.
+    b. Read in the train activity labels, convert them to activity names, and join them to the train data.
+    c. Read in the train subject labels and join them to the train data.
+4. Combine test and train into one data set.
 
 
 

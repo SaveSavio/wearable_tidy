@@ -15,17 +15,17 @@ library(dplyr)
     
     #Get test labels and add a column of descriptive activity names.
     mytestlabels <-read.table("UCI HAR Dataset/test/y_test.txt")
-    mytestlabels<-left_join(mytestlabels,myacts)
+    mytestlabels<-right_join(myacts,mytestlabels)
     
-    #Add column to test data with the descriptive activity labels.
-    mytestdata<- cbind(mytestdata,mytestlabels$V2)
+    #Add column to test data with the descriptive activity names
+    mytestdata<- cbind(mytestlabels$V2,mytestdata)
     mytestdata<- rename(mytestdata,Activity=`mytestlabels$V2`)
     
-    #Get test subjects .
+    #Get test subject labels.
     mytestsubjects <-read.table("UCI HAR Dataset/test/subject_test.txt")
     
-    #Add column to test data with the descriptive activity labels.
-    mytestdata<- cbind(mytestdata,mytestsubjects)
+    #Add column to test data with the subject labels.
+    mytestdata<- cbind(mytestsubjects,mytestdata)
     mytestdata<- rename(mytestdata,Subject=V1)
     
     
@@ -36,17 +36,17 @@ library(dplyr)
     
     #Get train labels and add a column of descriptive activity names.
     mytrainlabels <-read.table("UCI HAR Dataset/train/y_train.txt")
-    mytrainlabels<-left_join(mytrainlabels,myacts)
+    mytrainlabels<-right_join(myacts,mytrainlabels)
    
-    #Add column to test data with the descriptive activity labels.
-    mytraindata<- cbind(mytraindata,mytrainlabels$V2)
+    #Add column to test data with the descriptive activity names
+    mytraindata<- cbind(mytrainlabels$V2,mytraindata)
     mytraindata<- rename(mytraindata,Activity=`mytrainlabels$V2`)
     
-    #Get train subjects .
+    #Get train subject labels.
     mytrainsubjects <-read.table("UCI HAR Dataset/train/subject_train.txt")
     
-    #Add column to test data with the descriptive activity labels.
-    mytraindata<- cbind(mytraindata,mytrainsubjects)
+    #Add column to test data with the subject labels.
+    mytraindata<- cbind(mytrainsubjects,mytraindata)
     mytraindata<- rename(mytraindata,Subject=V1)
     
     
@@ -73,8 +73,8 @@ library(dplyr)
             mysubset_num<-select(mysubset,-Activity,-Subject)
             #Get the averages oof all the columns
             mysubsetmeans<-colMeans(mysubset_num)
-            #Turn the resulting named numeric vector back into a data.frame and reattach Activity and Subject columns
-            mysubsetmeans<-mutate(data.frame(as.list(mysubsetmeans)),Activity=act,Subject=subj)
+            #Turn the resulting named numeric vector back into a data.frame, reattach Activity / Subject columns, move them to front.
+            mysubsetmeans<-select(mutate(data.frame(as.list(mysubsetmeans)),Activity=act,Subject=subj),Subject,Activity,everything())
             #Use rbind to attach this row to the mymsdata_avgvals data frame.
             mymsdata_avgvals<-rbind(mymsdata_avgvals,mysubsetmeans)
         }

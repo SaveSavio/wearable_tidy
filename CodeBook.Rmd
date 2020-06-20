@@ -26,7 +26,7 @@ The data is from a study where 30 subjects (labeled as 1:30) did a variety of si
 
 The Activities were labeled with numbers 1:6 as follows
 
-```{r }
+```{r , echo=FALSE}
 myacts<-read.table("UCI HAR Dataset/activity_labels.txt")
 myacts
 ```

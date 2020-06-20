@@ -1,0 +1,73 @@
+---
+title: "CodeBook"
+author: "JCP"
+date: "6/20/2020"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+# CodeBook
+
+Thisdocument describes the variables and data in my dataset as well as the cleanup work that I did.
+
+## Source
+
+The original source of this data is the University of California Irvine Machine Learning Repository at <http://archive.ics.uci.edu/ml/datasets/Human+Activity+Recognition+Using+Smartphones>
+
+The data used for this project, however, was acquired from this link: <https://d396qusza40orc.cloudfront.net/getdata%2Fprojectfiles%2FUCI%20HAR%20Dataset.zip>
+
+
+## Description
+
+The data is from a study where 30 subjects (labeled as 1:30) did a variety of six activities while wearing a Samsung Galaxy S smartphone on their waist.  The phone's gyroscope and accelerometer recorded measurements of linear acceleration and angular velocity at a sample rate of 50Hz.  The original data set contained 561 features of these measurements.  70% of the subjects' data was in a training data set and 30% was in a test data set.
+
+The Activities were labeled with numbers 1:6 as follows
+
+```{r }
+myacts<-read.table("UCI HAR Dataset/activity_labels.txt")
+myacts
+```
+
+## Transformation
+
+The first data set provided is a result of the following cleanup actions:
+
+1. Combine the activity 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+## R Markdown
+
+This is an R Markdown document. Markdown is a simple formatting syntax for authoring HTML, PDF, and MS Word documents. For more details on using R Markdown see <http://rmarkdown.rstudio.com>.
+
+When you click the **Knit** button a document will be generated that includes both content as well as the output of any embedded R code chunks within the document. You can embed an R code chunk like this:
+
+```{r cars}
+summary(cars)
+```
+
+## Including Plots
+
+You can also embed plots, for example:
+
+```{r pressure, echo=FALSE}
+plot(pressure)
+```
+
+Note that the `echo = FALSE` parameter was added to the code chunk to prevent printing of the R code that generated the plot.

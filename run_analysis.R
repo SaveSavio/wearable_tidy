@@ -1,6 +1,6 @@
 library(dplyr)
 
-#run_analysis <- function () {
+
     
     #Get the column names from the features.txt file.
     mynames<-read.table("UCI HAR Dataset/features.txt")
@@ -80,7 +80,5 @@ library(dplyr)
         }
     }
     
-    
+    write.table(mymsdata_avgvals,"m_s_data_avgs.txt", row.name=FALSE)
 
-    
-#}

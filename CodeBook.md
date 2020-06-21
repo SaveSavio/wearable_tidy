@@ -66,6 +66,7 @@ The remaining variables are as described in the codebook for the original datase
 
 The variables/features included are as follows:
 
+
 "tBodyAcc.mean...X"
 "tBodyAcc.mean...Y"              
 "tBodyAcc.mean...Z"

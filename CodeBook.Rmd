@@ -55,38 +55,20 @@ The first data set provided is a result of the following cleanup actions:
 ## Data set
 
 The tidy data set produced by the script has the following variables:
+
 Subject : A number (1:30) representing the subject whose data is summarised on that row
+
 Activity: One of (WALKING, WALKING_UPSTAIRS, WALKING_DOWNSTAIRS, SITTING, STANDING, LAYING) indicating which Activity is represented in that row.
-The remaining variables are as described in the codebook for the original dataset.  Only the features identified as a mean or standard deviation are included, and the value is the average of all values of that measurement for that Activity * Subject combination.  Since there are 30 Subjects and six Activities, there are 180 rows in this data set.
 
+The remaining variables are as described in the codebook for the original dataset.  Only the features identified as a mean or standard deviation are included (see Step 5 in the Transformation section above), and the value listed for each row is the average of all values of that measurement for that particular Activity * Subject combination.  Since there are 30 Subjects and six Activities, there are 180 rows in this data set.
 
+Below is the output of the command head(mymsdata_avgvals)
 
-
-
-
-
-
-
-
-
-
-
-## R Markdown
-
-This is an R Markdown document. Markdown is a simple formatting syntax for authoring HTML, PDF, and MS Word documents. For more details on using R Markdown see <http://rmarkdown.rstudio.com>.
-
-When you click the **Knit** button a document will be generated that includes both content as well as the output of any embedded R code chunks within the document. You can embed an R code chunk like this:
-
-```{r cars}
-summary(cars)
+```{r , echo=FALSE}
+mymsdata_avgvals<-read.table("m_s_data_avgs.txt", header = TRUE)
+head(mymsdata_avgvals)
 ```
 
-## Including Plots
 
-You can also embed plots, for example:
 
-```{r pressure, echo=FALSE}
-plot(pressure)
-```
 
-Note that the `echo = FALSE` parameter was added to the code chunk to prevent printing of the R code that generated the plot.

@@ -26,10 +26,12 @@ The data is from a study where 30 subjects (labeled as 1:30) did a variety of si
 
 The Activities were labeled with numbers 1:6 as follows
 
-```{r , echo=FALSE}
-myacts<-read.table("UCI HAR Dataset/activity_labels.txt")
-myacts
-```
+1. WALKING
+2. WALKING_UPSTAIRS
+3. WALKING_DOWNSTAIRS
+4. SITTING
+5. STANDING
+6. LAYING
 
 ## Transformation
 
@@ -61,14 +63,4 @@ Subject : A number (1:30) representing the subject whose data is summarised on t
 Activity: One of (WALKING, WALKING_UPSTAIRS, WALKING_DOWNSTAIRS, SITTING, STANDING, LAYING) indicating which Activity is represented in that row.
 
 The remaining variables are as described in the codebook for the original dataset.  Only the features identified as a mean or standard deviation are included (see Step 5 in the Transformation section above), and the value listed for each row is the average of all values of that measurement for that particular Activity * Subject combination.  Since there are 30 Subjects and six Activities, there are 180 rows in this data set.
-
-Below is the output of the command head(mymsdata_avgvals)
-
-```{r , echo=FALSE}
-mymsdata_avgvals<-read.table("m_s_data_avgs.txt", header = TRUE)
-head(mymsdata_avgvals)
-```
-
-
-
 

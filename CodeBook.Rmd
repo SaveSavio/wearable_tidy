@@ -45,8 +45,19 @@ The first data set provided is a result of the following cleanup actions:
     b. Read in the train activity labels, convert them to activity names, and join them to the train data.
     c. Read in the train subject labels and join them to the train data.
 4. Combine test and train into one data set.
+5. Extract only the measurement means and standard deviations.
+6. Summarize the data set from step 5 with only the average value of all the measurements for each activity and subject.
+    a. Use nested for loops to filter the data by each activity (1:6) and each subject (1:30).
+    b. Use colMeans to get the averages of each column of this filtered subset.
+    c. Write that to a new table which will end up with 180 (6 x 30) rows, one for each subject * activity.
+7. Write this data out to a file m_s_data_avgs.txt
 
+## Data set
 
+The tidy data set produced by the script has the following variables:
+Subject : A number (1:30) representing the subject whose data is summarised on that row
+Activity: One of (WALKING, WALKING_UPSTAIRS, WALKING_DOWNSTAIRS, SITTING, STANDING, LAYING) indicating which Activity is represented in that row.
+The remaining variables are as described in the codebook for the original dataset.  Only the features identified as a mean or standard deviation are included, and the value is the average of all values of that measurement for that Activity * Subject combination.  Since there are 30 Subjects and six Activities, there are 180 rows in this data set.
 
 
 

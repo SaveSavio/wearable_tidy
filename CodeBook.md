@@ -146,5 +146,5 @@ The variables/features included are as follows:
 "fBodyBodyGyroJerkMag.std.."
 "fBodyBodyGyroJerkMag.meanFreq.."
 
-
+   
 
